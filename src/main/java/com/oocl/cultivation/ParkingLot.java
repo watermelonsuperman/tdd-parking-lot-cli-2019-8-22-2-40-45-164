@@ -7,15 +7,34 @@ public class ParkingLot {
     private final int capacity;
     private Map<ParkingTicket, Car> cars = new HashMap<>();
 
+    public Map getCars(){
+    	return cars;
+    }
     public ParkingLot() {
         this(10);
     }
-
+    
     public ParkingLot(int capacity) {
         this.capacity = capacity;
     }
 
     public int getAvailableParkingPosition() {
-        return cars.size() - capacity;
+        return capacity - cars.size();
+    }
+    public ParkingTicket park(Car car){
+    	ParkingTicket parkingTicket = new ParkingTicket();
+    	parkingTicket.car = car ;
+    	cars.put(parkingTicket, car);
+    	return parkingTicket;
+    }
+    public Car fetch(ParkingTicket parkingTicket){
+    	
+    	Car car = new Car();
+    	car = cars.get(parkingTicket);
+    	if(cars.get(parkingTicket) == null){
+    		return null;
+    	}
+    	cars.remove(parkingTicket);
+    	return car;
     }
 }
