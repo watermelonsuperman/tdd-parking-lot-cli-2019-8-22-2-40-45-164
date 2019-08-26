@@ -22,9 +22,14 @@ public class ParkingLot {
         return capacity - cars.size();
     }
     public ParkingTicket park(Car car){
+    	
     	ParkingTicket parkingTicket = new ParkingTicket();
+    	if(capacity - cars.size() > 0){
     	parkingTicket.car = car ;
     	cars.put(parkingTicket, car);
+    	}else{
+    		parkingTicket = null;
+    	}
     	return parkingTicket;
     }
     public Car fetch(ParkingTicket parkingTicket){

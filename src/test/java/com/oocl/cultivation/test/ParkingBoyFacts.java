@@ -79,78 +79,78 @@ public class ParkingBoyFacts {
         assertNull(parkingBoy.getLastErrorMessage());
     }
 
-//    @Test
-//    public void should_not_fetch_any_car_once_ticket_is_not_provided() {
-//        ParkingLot parkingLot = new ParkingLot();
-//        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
-//        Car car = new Car();
-//
-//        ParkingTicket ticket = parkingBoy.park(car);
-//
-//        assertNull(parkingBoy.fetch(null));
-//        assertSame(car, parkingBoy.fetch(ticket));
-//    }
-//
-//    @Test
-//    public void should_query_message_once_ticket_is_not_provided() {
-//        ParkingLot parkingLot = new ParkingLot();
-//        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
-//
-//        parkingBoy.fetch(null);
-//
-//        assertEquals(
-//            "Please provide your parking ticket.",
-//            parkingBoy.getLastErrorMessage());
-//    }
-//
-//    @Test
-//    public void should_not_fetch_any_car_once_ticket_has_been_used() {
-//        ParkingLot parkingLot = new ParkingLot();
-//        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
-//        Car car = new Car();
-//
-//        ParkingTicket ticket = parkingBoy.park(car);
-//        parkingBoy.fetch(ticket);
-//
-//        assertNull(parkingBoy.fetch(ticket));
-//    }
-//
-//    @Test
-//    public void should_query_error_message_for_used_ticket() {
-//        ParkingLot parkingLot = new ParkingLot();
-//        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
-//        Car car = new Car();
-//
-//        ParkingTicket ticket = parkingBoy.park(car);
-//        parkingBoy.fetch(ticket);
-//        parkingBoy.fetch(ticket);
-//
-//        assertEquals(
-//            "Unrecognized parking ticket.",
-//            parkingBoy.getLastErrorMessage()
-//        );
-//    }
-//
-//    @Test
-//    public void should_not_park_cars_to_parking_lot_if_there_is_not_enough_position() {
-//        final int capacity = 1;
-//        ParkingLot parkingLot = new ParkingLot(capacity);
-//        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
-//
-//        parkingBoy.park(new Car());
-//
-//        assertNull(parkingBoy.park(new Car()));
-//    }
-//
-//    @Test
-//    public void should_get_message_if_there_is_not_enough_position() {
-//        final int capacity = 1;
-//        ParkingLot parkingLot = new ParkingLot(capacity);
-//        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
-//
-//        parkingBoy.park(new Car());
-//        parkingBoy.park(new Car());
-//
-//        assertEquals("The parking lot is full.", parkingBoy.getLastErrorMessage());
-//    }
+    @Test
+    public void should_not_fetch_any_car_once_ticket_is_not_provided() {
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        Car car = new Car();
+
+        ParkingTicket ticket = parkingBoy.park(car);
+
+        assertNull(parkingBoy.fetch(null));
+        assertSame(car, parkingBoy.fetch(ticket));
+    }
+
+    @Test
+    public void should_query_message_once_ticket_is_not_provided() {
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+
+        parkingBoy.fetch(null);
+
+        assertEquals(
+            "Please provide your parking ticket.",
+            parkingBoy.getLastErrorMessage());
+    }
+
+    @Test
+    public void should_not_fetch_any_car_once_ticket_has_been_used() {
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        Car car = new Car();
+
+        ParkingTicket ticket = parkingBoy.park(car);
+        parkingBoy.fetch(ticket);
+
+        assertNull(parkingBoy.fetch(ticket));
+    }
+
+    @Test
+    public void should_query_error_message_for_used_ticket() {
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        Car car = new Car();
+
+        ParkingTicket ticket = parkingBoy.park(car);
+        parkingBoy.fetch(ticket);
+        parkingBoy.fetch(ticket);
+
+        assertEquals(
+            "Unrecognized parking ticket.",
+            parkingBoy.getLastErrorMessage()
+        );
+    }
+
+    @Test
+    public void should_not_park_cars_to_parking_lot_if_there_is_not_enough_position() {
+        final int capacity = 1;
+        ParkingLot parkingLot = new ParkingLot(capacity);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+
+        parkingBoy.park(new Car());
+
+        assertNull(parkingBoy.park(new Car()));
+    }
+
+    @Test
+    public void should_get_message_if_there_is_not_enough_position() {
+        final int capacity = 1;
+        ParkingLot parkingLot = new ParkingLot(capacity);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+
+        parkingBoy.park(new Car());
+        parkingBoy.park(new Car());
+
+        assertEquals("The parking lot is full.", parkingBoy.getLastErrorMessage());
+    }
 }

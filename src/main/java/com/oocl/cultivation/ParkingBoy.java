@@ -13,13 +13,19 @@ public class ParkingBoy {
     }
 
     public ParkingTicket park(Car car) {
+    	if(parkingLot.getAvailableParkingPosition() > 0){
+        	lastErrorMessage = null;
+    	}else{
+    		lastErrorMessage = "The parking lot is full.";
+    	}
        return  parkingLot.park(car);
     }
 
     public Car fetch(ParkingTicket ticket) {
-    	Map map = parkingLot.getCars();
-    	if(map.containsKey(ticket)){
+    	if(parkingLot.getCars().containsKey(ticket)){
     		lastErrorMessage = null;
+    	}else if(ticket == null){
+    		lastErrorMessage = "Please provide your parking ticket.";
     	}else{
     		lastErrorMessage = "Unrecognized parking ticket.";
     	}
